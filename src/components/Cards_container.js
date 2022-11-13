@@ -7,7 +7,7 @@ const Cards_container = () => {
             <div className="main">
 
                 <div className="heading">
-                    <h1>Restaurents</h1>
+                    <h1>Restaurants</h1>
                 </div>
                 <br />
                 <hr />

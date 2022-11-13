@@ -1,4 +1,5 @@
 import React from "react";
+import {NavLink,Route} from "react-router-dom"
 const Navbar = () => {
     return (
         <>
@@ -8,11 +9,14 @@ const Navbar = () => {
                     <a className="image">
                         <img className="logo-img" src="logo.png" alt="" />
                     </a>
-
                     <ul>
                         <li>Home</li>
                         <li>About</li>
-                        <li>Contact</li>
+                        <li>
+                        <NavLink to='/contact' >
+                           Contact
+                        </NavLink>
+                        </li>
                         <li>Services</li>
                     </ul>
 

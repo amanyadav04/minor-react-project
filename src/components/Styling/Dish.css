@@ -1,0 +1,53 @@
+.listings {
+    /* background-color: bisque;
+    margin: 10px 23px;
+    display: flex;
+
+    align-items: center;
+    padding: 8px;
+    position: relative;
+    border-radius: 12px; */
+    
+    margin: 10px 23px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #c1b4b4;
+    padding: 8px;
+    position: relative;
+}
+
+.img-of-dish {
+    /* height: 88px;
+    width: 88px;
+    background-color: burlywood;
+    border-radius: 8px; */
+ 
+    height: 129px;
+    width: 147px;
+    border-radius: 4px;
+    /* background: #f0e9e9; */
+box-shadow: 0px 4px 26px -5px rgba(0, 0, 0, 0.25);
+
+}
+.rate{
+    width: 40px;
+}
+.dishes {
+    margin: 10px;
+}
+p{
+    width: 43;
+}
+.description{
+    font-size: 11px;
+    max-width: 46vw;
+    width: 77%;
+}
+/* .AddtoCart {
+    position: absolute;
+    height: 37px;
+    left: 77%;
+    width: 110px;
+    border-radius: 4px;
+    border: none;
+} */

@@ -2,8 +2,11 @@ import React from "react";
 import {BrowserRouter,Route,Routes} from "react-router-dom"
 import Navbar from "./components/Navbar";
 import Cards_container from "./components/Cards_container";
-import OpenRes from "./Pages/OpenRes";
+
 import Home from "./Pages/Home";
+import Contact from "./Pages/oldpages/Contact";
+import NewRes from "./Pages/NewRes";
+import SignUp_login from "./Pages/SignUp_login";
 const App = () => {
   return (
     <>
@@ -11,15 +14,13 @@ const App = () => {
           <Routes>
 
             <Route path="/" element={<Home/>}/>
-               <Route path="restaurant" element={<OpenRes/>}/>
-
+               <Route path="restaurant" element={<NewRes/>}/>
+                <Route path='contact' element={<Contact/>}/>
           </Routes>
        </BrowserRouter>    
       
+       {/* <SignUp_login/> */}
 
-      {/* <Navbar/>
-      <div className="big-img"></div>
-      <Cards_container/> */}
       
     </>
   )

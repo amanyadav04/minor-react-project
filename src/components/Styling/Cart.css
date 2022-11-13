@@ -1,0 +1,24 @@
+.Cart{
+    overflow: scroll;
+    height: 192px;
+}
+.Cart::-webkit-scrollbar{
+    background-color: #ffff;
+    width: 6px;
+}
+.Cart::-webkit-scrollbar-thumb{
+    background-color: #10134a38;
+    border-radius: 38px;
+}
+
+.total-sum{
+    /* background-color: aqua; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 3px 0px;
+}
+.order-btn{
+    height: 33px;
+    width: 200px;
+}
