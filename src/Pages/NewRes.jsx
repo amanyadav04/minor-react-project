@@ -31,10 +31,15 @@ const NewRes = () => {
 
     const [Menushow, setMShow] = useState();
     const [Detailshow, setDShow] = useState({ 'display': 'none' });
-
+    
     const [cartItems,setcartItems]=useState([])
 
-    const add=(item)=>{
+    const [removeBtn,setremoveBtn]=useState('hidden');
+
+    const [activeDish,setactiveDish]=useState();
+    const add=(item,index)=>{
+        setactiveDish(index);
+        setremoveBtn('visible');
      setcartItems((prev)=>{
  
          if(prev.includes(item))
@@ -44,6 +49,16 @@ const NewRes = () => {
  
        })
     }
+
+    const remove=(item)=>{
+        setcartItems((prev)=>{
+            const index=prev.indexOf(item);
+            prev.splice(index,1);
+
+            return prev;
+        })
+    }
+
 
     return (
 
@@ -102,15 +117,16 @@ const NewRes = () => {
                 <div className="menu-container">
 
 
-                    {arr.map((val) => {
+                    {arr.map((val,index) => {
                         return (
                             <>
 
-                                <div className="menu">
+                                <div key={index} className="menu">
 
                                     <Dishes name={val.name} rate={val.rate} desc={val.desc} />
-                                    <button className='AddtoCart'onClick={()=>add(val)} >Add</button>
-                                    <button className='AddtoCart'onClick={()=>add(val)} >remove</button>
+                                    <button className='AddtoCart'onClick={()=>add(val,index)} 
+                                     style={index===activeDish?{visibility:'hidden'}:null} >Add</button>
+                                    <button className='removetoCart' onClick={()=>remove(val)} >remove</button>
                                 </div>
                             </>
                         )
