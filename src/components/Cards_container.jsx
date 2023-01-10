@@ -1,6 +1,13 @@
-import React from 'react'
+import React,{useEffect,useState} from 'react'
 import Card from './Card'
+import axios from "axios";
+import restaurantsImages from '../DatabaseImages/restaurantsImage';
+import "./Styling/card.css"
 const Cards_container = () => {
+
+   
+    
+
     return (
         <>
 
@@ -13,7 +20,7 @@ const Cards_container = () => {
                 <hr />
 
                 <div className="container-flex">
-                    <Card
+                    {/* <Card
                         img={'Dish_img.jpg'}
                         resName={'Rataquile'}
                         des={'freanch food'}
@@ -32,12 +39,19 @@ const Cards_container = () => {
                         img={'Dish_img.jpg'}
                         resName={'Rataquile'}
                         des={'freanch food'}
+                    /> */}
+
+
+                   {restaurantsImages.map((val)=>{
+                    return(
+                        <Card
+                        img={val.img}
+                        resName={val.name}
+                        des={val.des}
                     />
-                    <Card
-                        img={'Dish_img.jpg'}
-                        resName={'Rataquile'}
-                        des={'freanch food'}
-                    />
+                    )
+                   })}
+                    
                 </div>
 
             </div>

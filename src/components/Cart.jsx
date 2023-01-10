@@ -1,10 +1,15 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import AddedItems from './AddedItems'
 import './Styling/Cart.css'
-function Cart({addedItems}) {    // addedItems is array containing objects.
+function Cart({addedItems,TotalSum,setTotalSum}) {    // addedItems is array containing objects.
 
-  const [TotalSum,setTotalSum]=useState(0);
+  
 
+  useEffect(() => {
+   console.log("chnge sum here");
+
+  }, [addedItems])
+  
   const func=(val)=>{
           setTotalSum((prev)=>{
             return prev+val
@@ -27,7 +32,7 @@ function Cart({addedItems}) {    // addedItems is array containing objects.
        {addedItems.map((items)=>{   // yha pe call kiya h map func ko addedItems array pr
         return(
           <>
-          <AddedItems Item={items} SumFunc={func} DesFunc={func2} />  
+          <AddedItems Item={items} SumFunc={func} DesFunc={func2}  />  
           {/* ye ek component h ek jo ki cart me add huye items ka h */}
           </>
         )

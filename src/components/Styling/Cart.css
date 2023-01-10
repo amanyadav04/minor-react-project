@@ -2,6 +2,7 @@
     overflow: scroll;
     height: 192px;
 }
+
 .Cart::-webkit-scrollbar{
     background-color: #ffff;
     width: 6px;
@@ -21,4 +22,7 @@
 .order-btn{
     height: 33px;
     width: 200px;
+}
+.order-btn:hover{
+    background-color: #64d3ae;
 }

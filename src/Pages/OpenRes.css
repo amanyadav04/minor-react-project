@@ -43,15 +43,21 @@
 .resImg {
     background-color: aqua;
     border-radius: 7px;
-    width: 38%;
+    width: 27%;
     height: 100%;
+    background-image: url(https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/p0hvhidw1ehcrza3rzk8);
+    background-size: cover;
 }
+
 
 .descrp {
     /* height: 266px; */
     padding: 19px 12px;
 }
-
+.descrp>h2{
+    font-weight: 500;
+    font-size: 166%;
+}
 
 .menu-container{
     

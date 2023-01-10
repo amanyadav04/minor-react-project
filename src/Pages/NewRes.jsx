@@ -1,29 +1,34 @@
 import React, { useState, useEffect } from 'react'
 import Cart from '../components/Cart'
 import Dishes from '../components/Dishes'
+import MenuItems from '../components/MenuItems'
 import Navbar from '../components/Navbar'
 import './OpenRes.css'
 
 const arr = [
     {
-        name: 'Chilli Paneer',
+        img:'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/f1qxnzmqotwq65fkceie',
+        name: 'Kesar pista kulfi',
         rate: 10,
-        desc:'Cubes of crispy paneer with garlic, onions, green chillies tossed in soya sauce and home made chili sauce. | Deep Fried |'
+        desc: 'Cubes of crispy paneer with garlic, onions, green chillies tossed in soya sauce and home made chili sauce. | Deep Fried |'
     },
     {
-        name: 'Paneer Kamlin',
+        img:'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/kkq4h8nor4rukvhxjfpj',
+        name: 'Special Faludi Kulfi',
         rate: 20,
-        desc:'Paneer cooked with a blend of different spices which adds to the richness of the curry.'
+        desc: 'Paneer cooked with a blend of different spices which adds to the richness of the curry.'
     },
     {
-        name: 'Crispy Corn',
+        img:'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/ft0gdips2g3a7odbeaxh',
+        name: 'Special Rabdi Faluda Kulfi',
         rate: 30,
-        desc:'Fresh corn kernels dusted slightly in seasoned flour, deep fried and flavoured with freshly white pepper, rock salt, spring onions and capsicum.'
+        desc: 'Fresh corn kernels dusted slightly in seasoned flour, deep fried and flavoured with freshly white pepper, rock salt, spring onions and capsicum.'
     },
     {
-        name: 'Veg Kothe',
+        img:'https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_208,h_208,c_fit/f1qxnzmqotwq65fkceie',
+        name: 'Kulfis',
         rate: 40,
-        desc:'Tasty and crispy dish made of chopped onions, cauliflower, garlic, chilli fried until golden and coated in cornflour salt with medley of sauce rich in sweet,sour and spicy flavours.'
+        desc: 'Tasty and crispy dish made of chopped onions, cauliflower, garlic, chilli fried until golden and coated in cornflour salt with medley of sauce rich in sweet,sour and spicy flavours.'
     }
 ]
 const NewRes = () => {
@@ -31,31 +36,36 @@ const NewRes = () => {
 
     const [Menushow, setMShow] = useState();
     const [Detailshow, setDShow] = useState({ 'display': 'none' });
-    
-    const [cartItems,setcartItems]=useState([])
 
-    const [removeBtn,setremoveBtn]=useState('hidden');
+    const [cartItems, setcartItems] = useState([])
 
-    const [activeDish,setactiveDish]=useState();
-    const add=(item,index)=>{
-        setactiveDish(index);
-        setremoveBtn('visible');
-     setcartItems((prev)=>{
- 
-         if(prev.includes(item))
-         return [...prev]
-         else
-         return [...prev,item]
- 
-       })
+    const [TotalSum, setTotalSum] = useState(0);
+
+
+    const add = (item, setremoveBtn) => {
+
+        setremoveBtn(true);
+        setcartItems((prev) => {
+
+            if (prev.includes(item))
+                return [...prev]
+            else
+                return [...prev, item]
+
+        })
     }
 
-    const remove=(item)=>{
-        setcartItems((prev)=>{
-            const index=prev.indexOf(item);
-            prev.splice(index,1);
+    const remove = (item, setremoveBtn) => {
+        console.log('remove is clicked');
+        setremoveBtn(false);
+        setTotalSum((prev) => {
+            return prev - item.rate;
+        })
+        setcartItems((prev) => {
+            const index = prev.indexOf(item);
+            prev.splice(index, 1);
 
-            return prev;
+            return [...prev];
         })
     }
 
@@ -76,13 +86,16 @@ const NewRes = () => {
 
             <div className="resDes">
                 <div className="resImg">
-
+                      
                 </div>
                 <span className="descrp">
-                   <h2> Name of restaurants </h2>
-                  <br></br>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, nam.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, nam.
+                    <h2> StarBucks </h2>
+                    <br></br>
+                    Beverages, Desserts
+                    Old Palasia, Indore
+                    Open now
+                    8am – 11:45pm (Today)
+
                 </span>
             </div>
 
@@ -117,28 +130,29 @@ const NewRes = () => {
                 <div className="menu-container">
 
 
-                    {arr.map((val,index) => {
+                    {arr.map((val, index) => {
                         return (
                             <>
 
-                                <div key={index} className="menu">
+                                {/* <div key={index} className="menu">
 
                                     <Dishes name={val.name} rate={val.rate} desc={val.desc} />
-                                    <button className='AddtoCart'onClick={()=>add(val,index)} 
-                                     style={index===activeDish?{visibility:'hidden'}:null} >Add</button>
-                                    <button className='removetoCart' onClick={()=>remove(val)} >remove</button>
-                                </div>
+                                    <button className='AddtoCart'onClick={()=>add(val)} >{(removeBtn?"Remove":"Add")}</button>
+                                    
+                                </div> */}
+
+                                <MenuItems  val={val} index={index} addFunc={add} removeFunc={remove} />
                             </>
                         )
                     })}
 
                 </div>
-                    <div className="cart">
+                <div className="cart">
 
-                    <Cart addedItems={cartItems} />
+                    <Cart addedItems={cartItems} TotalSum={TotalSum} setTotalSum={setTotalSum} />
                 </div>
 
-            
+
 
 
             </div>

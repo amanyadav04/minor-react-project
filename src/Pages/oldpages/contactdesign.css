@@ -65,8 +65,12 @@
   color: #afafb6;
 }
 .container .content .right-side{
-  width: 75%;
+  width: 65%;
   margin-left: 75px;
+}
+.container .content .right-side p{
+  width: 100%;
+  
 }
 .content .right-side .topic-text{
   font-size: 23px;

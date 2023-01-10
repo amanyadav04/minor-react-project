@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 
 
 import './Styling/Dish.css'
-function Dishes({name,rate,desc}) {
+function Dishes({name,rate,desc,Background}) {
   
  
   return (
     
     <>
       <div className="listings">
-        <div className="img-of-dish">
+        <div className="img-of-dish" style={{'backgroundImage': `url(${Background})`}}>
 
         </div>
         <span className="dishes">

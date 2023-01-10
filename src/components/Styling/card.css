@@ -1,0 +1,44 @@
+.card{
+  
+    background-color: #f9f9f9;
+    width: 300px;
+    height: 383px;
+    margin: 30px 0px;
+}
+.card:hover{
+  transition: all;
+  /* transition-timing-function: ease-in; */
+  transition-duration: 200ms;
+  transform: scale(1.02);
+  box-shadow: 0px 4px 8px 3px #8d8484;
+}
+  
+  .card-img{
+    height: 200px;
+      background-color: burlywood;
+  }
+  .view-restau{
+   
+    width: 92px;
+    border-radius: 23px;
+    border: none;
+    
+    margin-left: 72px;
+    background-color: antiquewhite;
+    padding: 9px;
+}
+  
+  .desc{
+    padding: 9px;
+    height:127px;
+  }
+  .desc>h4{
+    max-width: 101%;
+    
+  }
+  .desc>h3{
+    margin: 11px 1px;
+    text-align: center;
+    font-weight: 700;
+}
+  
